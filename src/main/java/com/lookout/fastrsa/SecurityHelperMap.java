@@ -2,7 +2,9 @@ package com.lookout.fastrsa;
 
 import java.util.Map;
 
-public class SecurityHelperMap  {
+public class SecurityHelperMap {
+
+    private SecurityHelperMap {}
 
     public static void setup( Map<String, Class<?>> engines ) {
         String[] names = {
@@ -21,5 +23,7 @@ public class SecurityHelperMap  {
                 System.err.println( "signature class not found for: " + name + " ( " + e.getMessage() + " )" );
             }
         }
+
+        engines.put( "Cipher:RSA", FastCipherSpi.NoPadding.class );
     }
 }

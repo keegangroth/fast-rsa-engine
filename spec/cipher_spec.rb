@@ -1,22 +1,29 @@
 require_relative 'setup'
 
-describe 'Signature' do
+describe 'Cipher' do
 
   let( :this ) { File.expand_path( '..', __FILE__) }
 
-  let( :private_key ) { OpenSSL::PKey::RSA.new(File.read("#{this}/foo.pem")) }
+  let( :private_key ) {
+    file = File.read("#{this}/foo.pem")
+    OpenSSL::PKey::RSA.new(file)
+  }
 
-  let( :msg ) { "THIS IS A TEST" }
+  let( :msg ) {
+    file = File.read("#{this}/foo_cert.pem")
+    public_key = OpenSSL::X509::Certificate.new(file).public_key
+    public_key.public_encrypt("THIS IS A TEST")
+  }
 
   let( :rounds ) { 10 }
 
-  it 'is faster the regular signature' do
+  it 'is faster the regular cipher' do
     # clear the fast engines
     engines.clear
 
     start = Time.new.to_f
     rounds.times do
-      private_key.sign(OpenSSL::Digest.new('sha512'), msg)
+      private_key.private_decrypt(msg)
     end
     delta1 = Time.new.to_f - start
 
@@ -25,7 +32,7 @@ describe 'Signature' do
 
     start = Time.new.to_f
     rounds.times do
-      private_key.sign(OpenSSL::Digest.new('sha512'), msg)
+      private_key.private_decrypt(msg)
     end
     delta2 = Time.new.to_f - start
 

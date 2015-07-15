@@ -28,7 +28,7 @@ import org.bouncycastle.jcajce.provider.asymmetric.rsa.DigestSignatureSpi;
 
 public class FastDigestSignatureSpi extends DigestSignatureSpi {
     
-    FastDigestSignatureSpi(ASN1ObjectIdentifier objId, Digest digest, AsymmetricBlockCipher cipher) {
+    private FastDigestSignatureSpi(ASN1ObjectIdentifier objId, Digest digest, AsymmetricBlockCipher cipher) {
         super( objId, digest, cipher);
     }
 
@@ -130,5 +130,4 @@ public class FastDigestSignatureSpi extends DigestSignatureSpi {
             super(TeleTrusTObjectIdentifiers.ripemd256, new RIPEMD256Digest(), new PKCS1Encoding(new NativeRSAEngine()));
         }
     }
-
 }
