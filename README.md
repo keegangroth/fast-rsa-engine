@@ -6,32 +6,36 @@ but this works only for **darwin** and **linux-x84_64** platforms due to the lib
 
 the improvement in performance brings JRuby verify and decrypy using RSA close to MRI.
 
-# TODO rewrite anything below here
+## installation
 
-# build and install in local maven-repo
-
+via rubygems
 ```
-./mvnw install
+gem install fast-rsa-engine
 ```
-
-the actual gem can be also found in **./pkg**.
-
-this gem can be used with gradle when adding ```mavenLocal()``` to the repository declarations.
-
-# use the local gem the ruby way
-
-first run
-
+or add to your Gemfile
 ```
-./mvnw package
+gem 'fast-rsa-engine'
 ```
 
-to build the jar for the gem as well install the jar-dependencies of this gem locally.
+installing the gem also takes care of the jar dependencies with jruby-1.7.16+
 
-add to your **Gemfile**
+## usage
 
-```
-gem 'fast-rsa-engine', :path => 'path/to/here'
-```
+with bundler its auto-require magic will be sufficient. otherwise just
 
-and run ```bundle install``` there.
+    require 'fast-rsa-engine'
+
+## developement
+
+get all the gems and jars in place
+
+    gem install jar-dependencies --development
+    bundle install
+
+for running all specs
+
+	rake
+
+## meta-fu
+
+enjoy :)

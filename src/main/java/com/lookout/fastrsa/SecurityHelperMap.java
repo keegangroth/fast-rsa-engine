@@ -4,7 +4,7 @@ import java.util.Map;
 
 public class SecurityHelperMap {
 
-    private SecurityHelperMap {}
+    private SecurityHelperMap() {}
 
     public static void setup( Map<String, Class<?>> engines ) {
         String[] names = {
