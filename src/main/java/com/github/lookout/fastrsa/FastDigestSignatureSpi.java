@@ -1,4 +1,4 @@
-package com.lookout.fastrsa;
+package com.github.lookout.fastrsa;
 
 import com.squareup.crypto.rsa.NativeRSAEngine;
 
@@ -27,7 +27,7 @@ import org.bouncycastle.crypto.encodings.PKCS1Encoding;
 import org.bouncycastle.jcajce.provider.asymmetric.rsa.DigestSignatureSpi;
 
 public class FastDigestSignatureSpi extends DigestSignatureSpi {
-    
+
     private FastDigestSignatureSpi(ASN1ObjectIdentifier objId, Digest digest, AsymmetricBlockCipher cipher) {
         super( objId, digest, cipher);
     }

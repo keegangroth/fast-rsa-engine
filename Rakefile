@@ -17,4 +17,4 @@ Gem::PackageTask.new( eval File.read( './fast-rsa-engine.gemspec' ) ) do
   task :package => [:jar]
 end
 
-# vim: syntax=Ruby
+# vim: syntax=ruby

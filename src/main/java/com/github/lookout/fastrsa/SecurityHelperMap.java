@@ -1,4 +1,4 @@
-package com.lookout.fastrsa;
+package com.github.lookout.fastrsa;
 
 import java.util.Map;
 

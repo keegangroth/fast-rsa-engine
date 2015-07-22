@@ -1,4 +1,4 @@
-package com.lookout.fastrsa;
+package com.github.lookout.fastrsa;
 
 import com.squareup.crypto.rsa.NativeRSAEngine;
 
@@ -24,7 +24,7 @@ import org.bouncycastle.jcajce.provider.asymmetric.rsa.CipherSpi;
 import org.bouncycastle.util.Strings;
 
 public class FastCipherSpi extends CipherSpi {
-    
+
     private FastCipherSpi(AsymmetricBlockCipher cipher) {
         super( cipher );
     }
@@ -34,7 +34,7 @@ public class FastCipherSpi extends CipherSpi {
     {
         MGF1ParameterSpec mgfParams = (MGF1ParameterSpec)pSpec.getMGFParameters();
         Digest digest = DigestFactory.getDigest(mgfParams.getDigestAlgorithm());
-        
+
         if (digest == null)
         {
             throw new NoSuchPaddingException("no match on OAEP constructor for digest algorithm: "+ mgfParams.getDigestAlgorithm());
@@ -49,7 +49,7 @@ public class FastCipherSpi extends CipherSpi {
     {
         set( cipher, "cipher" );
     }
- 
+
     private void set(Object object, String name)
         throws NoSuchFieldException, IllegalAccessException
     {
@@ -57,7 +57,7 @@ public class FastCipherSpi extends CipherSpi {
         field.setAccessible(true);
         field.set(this, object);
     }
-    
+
     protected void engineSetPadding(
         String padding)
         throws NoSuchPaddingException
@@ -183,7 +183,7 @@ public class FastCipherSpi extends CipherSpi {
             }
         }
     }
-    
+
     static public class ISO9796d1Padding
         extends FastCipherSpi
     {
