@@ -3,15 +3,15 @@
 Gem::Specification.new do |s|
   s.name = 'fast-rsa-engine'
   s.version = '0.1.0'
-  s.author = 'christian meier'
+  s.author = 'Christian Meieier'
   s.email = [ 'christian.meier@lookout.com' ]
   s.platform = 'java'
- 
+
   s.license = 'MIT'
   s.summary = %q(replaces the RSA signature and RSA ciphers from jruby-openssl by the must faster implementation of them)
   s.homepage = 'https://github.com/lookout/fast-rsa-engine'
   s.description = %q(this gem replaces the RSA signature and RSA ciphers from jruby-openssl by the must faster implementation of them. see https://corner.squareup.com/2014/02/faster-rsa-jnagmp.html)
-  
+
   s.files = `git ls-files`.split($/)
 
   BC_VERSION = '1.50'
@@ -28,4 +28,4 @@ Gem::Specification.new do |s|
   s.add_development_dependency 'rake', '~> 10.2'
 end
 
-# vim: syntax=Ruby
+# vim: syntax=ruby
