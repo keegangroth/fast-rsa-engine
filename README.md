@@ -1,10 +1,10 @@
 # Fast RSA Engine for jruby-openssl gem
 
-this gem replaces the RSA signature and RSA ciphers from jruby-openssl by the must faster implementation of them. see [corner.squareup.com/2014/02/faster-rsa-jnagmp.html](https://corner.squareup.com/2014/02/faster-rsa-jnagmp.html)
+This gem replaces the RSA signature and RSA ciphers from jruby-openssl by the much faster implementation of them. See [corner.squareup.com/2014/02/faster-rsa-jnagmp.html](https://corner.squareup.com/2014/02/faster-rsa-jnagmp.html)
 
 but this works only for **darwin** and **linux-x84_64** platforms due to the library used from squareup.
 
-the improvement in performance brings JRuby verify and decrypy using RSA close to MRI.
+The improvement in performance brings JRuby verify and decrypy using RSA close to MRI.
 
 ## installation
 
