@@ -25,6 +25,13 @@ with bundler its auto-require magic will be sufficient. otherwise just
 
     require 'fast-rsa-engine'
 
+## running the benchmark
+
+    ruby benchmark/benchmark-with-fast-rsa.rb
+
+or
+    ruby benchmark/benchmark-with-builtin-rsa.rb
+
 ## developement
 
 get all the gems and jars in place
