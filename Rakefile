@@ -1,6 +1,8 @@
 #-*- mode: ruby -*-
 
+require 'bundler/gem_tasks'
 require 'ruby-maven'
+
 desc "Pack fast-rsa-engine.jar with the compiled classes"
 task :jar do
   RubyMaven.exec('prepare-package', '-Dmaven.test.skip')
