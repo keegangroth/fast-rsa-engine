@@ -1,6 +1,11 @@
 if RUBY_PLATFORM == 'java'
   require 'fast-rsa-engine_jars.rb'
-  require 'fast-rsa-engine.jar'
+  begin
+    Java::OrgJrubyExtOpenssl::SecurityHelper
+    warn 'openssl loaded before fast-rsa-engine'
+  rescue NameError
+    require 'fast-rsa-engine.jar'
+  end
   require 'openssl'
 
   # lexical compare is sufficient here
