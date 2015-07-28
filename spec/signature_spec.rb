@@ -23,6 +23,7 @@ describe 'Signature' do
 
     # setup the fast engines
     engines.clear
+    # this creates a warning
     load( "${this}/../lib/fast-rsa-engine.rb" )
 
     start = Time.new.to_f
