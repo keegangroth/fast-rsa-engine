@@ -29,6 +29,7 @@ describe 'Cipher' do
     delta1 = Time.new.to_f - start
 
     # setup the fast engines
+    engines.clear
     load( "${this}/../lib/fast-rsa-engine.rb" )
 
     start = Time.new.to_f
@@ -36,6 +37,7 @@ describe 'Cipher' do
       private_key.private_decrypt(msg)
     end
     delta2 = Time.new.to_f - start
+
     expect( delta1 ).to be > 2 * delta2
   end
   

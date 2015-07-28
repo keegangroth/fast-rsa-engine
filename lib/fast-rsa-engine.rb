@@ -19,7 +19,7 @@ if RUBY_PLATFORM == 'java'
       end
     end
   else
-    warn "jruby-openssl gem #{Gem.loaded_specs['jruby-openssl'].version} is too old"
+    warn "jruby-openssl gem #{Jopenssl::Version::VERSION} is too old"
   end
 else
   warn "fast-rsa-engine does not affect MRI"

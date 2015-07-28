@@ -22,6 +22,7 @@ describe 'Signature' do
     delta1 = Time.new.to_f - start
 
     # setup the fast engines
+    engines.clear
     load( "${this}/../lib/fast-rsa-engine.rb" )
 
     start = Time.new.to_f
