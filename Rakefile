@@ -9,6 +9,9 @@ if RUBY_PLATFORM == 'java'
   task :jar do
     RubyMaven.exec('-f', 'fast-rsa-engine.gemspec', 'prepare-package', '-Dmaven.test.skip')
   end
+else
+  task :jar do
+  end
 end
 
 require "rspec/core/rake_task"
