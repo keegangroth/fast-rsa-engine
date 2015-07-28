@@ -9,7 +9,7 @@ GEM
   specs:
     diff-lcs (1.2.5)
     jar-dependencies (0.1.15)
-    jruby-openssl (0.9.7-java)
+    jruby-openssl (0.9.8-java)
     rake (10.4.2)
     rspec (3.3.0)
       rspec-core (~> 3.3.0)
@@ -33,7 +33,7 @@ PLATFORMS
 
 DEPENDENCIES
   fast-rsa-engine!
-  jruby-openssl (= 0.9.7)
+  jruby-openssl (= 0.9.8)
   rake (~> 10.2)
   rspec (~> 3.3)
   ruby-maven (~> 3.3)

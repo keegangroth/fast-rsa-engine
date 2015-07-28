@@ -3,7 +3,7 @@ install: gem install bundler -v '~>1.10'; bundle install
 gemfile:
   - Gemfile
   - Gemfile096
-  - Gemfile097
+  - Gemfile098
 rvm:
   - jruby-1.7.19
   - jruby-1.7.21
