@@ -3,8 +3,8 @@ if RUBY_PLATFORM == 'java'
   require 'fast-rsa-engine.jar'
   require 'openssl'
 
-  # literal compare is sufficient here
-  if Gem.loaded_specs['jruby-openssl'].version.to_s > '0.9.5'
+  # lexical compare is sufficient here
+  if Jopenssl::Version::VERSION > '0.9.5'
     # keep the default name space clean and use tap
     tap do
       begin
