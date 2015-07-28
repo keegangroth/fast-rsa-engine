@@ -1,13 +1,16 @@
 language: ruby
 install: gem install bundler -v '~>1.10'; bundle install
 gemfile:
-- Gemfile
-- Gemfile096
-- Gemfile097
+  - Gemfile
+  - Gemfile096
+  - Gemfile097
 rvm:
-- jruby-1.7.19
-- jruby-1.7.21
-- jruby-9.0.0.0
+  - jruby-1.7.19
+  - jruby-1.7.21
+  - jruby-9.0.0.0
 jdk:
   - openjdk7
   - oraclejdk8
+matrix:
+  include:
+    - rvm: 1.9.3
