@@ -55,9 +55,7 @@ public class FastCipherSpi extends CipherSpi {
     {
         Field field = getClass().getSuperclass().getSuperclass().getDeclaredField(name);
         field.setAccessible(true);
-	System.err.println(field.get(this));
         field.set(this, object);
-	System.err.println(field.get(this));
     }
 
     protected void engineSetPadding(
@@ -66,7 +64,6 @@ public class FastCipherSpi extends CipherSpi {
     {
         try {
             String pad = Strings.toUpperCase(padding);
-	    System.err.println(pad);
             if (pad.equals("NOPADDING"))
                 {
                     cipher(new NativeRSAEngine());
