@@ -71,6 +71,7 @@ import javax.crypto.SecretKeyFactory;
 import javax.crypto.SecretKeyFactorySpi;
 import javax.net.ssl.SSLContext;
 
+import com.sun.crypto.provider.CipherWithWrappingSpi;
 import org.bouncycastle.asn1.x509.AlgorithmIdentifier;
 import org.bouncycastle.asn1.x509.CertificateList;
 import org.bouncycastle.cert.CertException;
@@ -99,6 +100,15 @@ public abstract class SecurityHelper {
     static Provider securityProvider; // 'BC' provider (package access for tests)
     private static Boolean registerProvider = null;
     private static final Map<String, Class> implEngines = new ConcurrentHashMap<String, Class>(16, 0.75f, 1);
+
+    public static void addCipher(String name, Class<? extends CipherSpi> clazz) {
+        implEngines.put("Cipher:" + name, clazz);
+        tryCipherInternal = true;
+    }
+
+    public static void addSignature(String name, Class<? extends SignatureSpi> clazz) {
+        implEngines.put("Signature:" + name, clazz);
+    }
 
     public static Provider getSecurityProvider() {
         if ( setBouncyCastleProvider && securityProvider == null ) {
@@ -329,6 +339,7 @@ public abstract class SecurityHelper {
         }
         return null;
     }
+
     static void debugStackTrace(Exception e){
 	e.printStackTrace();
     }
@@ -388,6 +399,7 @@ public abstract class SecurityHelper {
             //
             StringTokenizer tok = new StringTokenizer(transformation, "/");
             final String algorithm = tok.nextToken();
+
             spi = (CipherSpi) getImplEngine("Cipher", algorithm);
             if ( spi == null ) {
                 // if ( silent ) return null;
@@ -407,21 +419,24 @@ public abstract class SecurityHelper {
             }
 
         }
-	try {
+        try {
             return newInstance(Cipher.class,
                 new Class[] { CipherSpi.class, Provider.class, String.class },
-	    	new Object[] { spi, provider, transformation }
-	    );
-	}
-	catch( IllegalStateException e ) {
-	    if (e.getCause().getClass() == NullPointerException.class) {
-            return newInstance(Cipher.class,
-                new Class[] { CipherSpi.class, String.class },
-                new Object[] { spi, transformation }
+                new Object[] { spi, provider, transformation }
             );
-	    }
-	    throw e;
-	}
+        }
+        catch( IllegalStateException e ) {
+            // this can be due to trusted check in Cipher constructor
+            if (e.getCause().getClass() == NullPointerException.class) {
+                Cipher cipher = newInstance(Cipher.class,
+                    new Class[] { CipherSpi.class, String.class },
+                    new Object[] { spi, transformation }
+                );
+                setField(cipher, Cipher.class, "provider", provider);
+                return cipher;
+            }
+            throw e;
+        }
     }
 
     /**
@@ -733,5 +748,4 @@ public abstract class SecurityHelper {
             throw new IllegalStateException(e);
         }
     }
-
 }
