@@ -7,7 +7,7 @@ if RUBY_PLATFORM == 'java'
 
   desc "Pack fast-rsa-engine.jar with the compiled classes"
   task :jar do
-    RubyMaven.exec('-f', 'fast-rsa-engine.gemspec', 'prepare-package', '-Dmaven.test.skip')
+    raise unless RubyMaven.exec('-f', 'fast-rsa-engine.gemspec', 'prepare-package', '-Dmaven.test.skip')
   end
 else
   task :jar do
