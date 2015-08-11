@@ -2,14 +2,14 @@
 
 Gem::Specification.new do |s|
   s.name = 'fast-rsa-engine'
-  s.version = '0.1.1'
-  s.author = 'Christian Meieier'
+  s.version = '0.2.0'
+  s.author = 'Christian Meier'
   s.email = [ 'christian.meier@lookout.com', 'rtyler.croy@lookout.com' ]
 
   s.license = 'MIT'
-  s.summary = %q(replaces the RSA signature and RSA ciphers from jruby-openssl by the must faster implementation of them)
+  s.summary = %q(replaces the RSA signature and RSA ciphers from jruby-openssl by a faster implementation of them)
   s.homepage = 'https://github.com/lookout/fast-rsa-engine'
-  s.description = %q(this gem replaces the RSA signature and RSA ciphers from jruby-openssl by the must faster implementation of them. see https://corner.squareup.com/2014/02/faster-rsa-jnagmp.html)
+  s.description = %q(this gem replaces the RSA signature and RSA ciphers from jruby-openssl by a faster implementation of them. see https://corner.squareup.com/2014/02/faster-rsa-jnagmp.html)
 
   s.files = `git ls-files`.split($/)
 
