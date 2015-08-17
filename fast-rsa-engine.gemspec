@@ -2,7 +2,7 @@
 
 Gem::Specification.new do |s|
   s.name = 'fast-rsa-engine'
-  s.version = '0.2.0'
+  s.version = '0.2.1'
   s.author = 'Christian Meier'
   s.email = [ 'christian.meier@lookout.com', 'rtyler.croy@lookout.com' ]
 
@@ -14,6 +14,7 @@ Gem::Specification.new do |s|
   s.files = `git ls-files`.split($/)
 
   if RUBY_PLATFORM == 'java'
+    s.files << 'lib/fast-rsa-engine.jar'
     unless defined?(BC_VERSION)
       BC_VERSION = '1.50'
     end
