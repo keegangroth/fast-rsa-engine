@@ -18,7 +18,6 @@ describe 'Cipher' do
   let( :rounds ) { 100 }
 
   it 'is faster the regular cipher' do
-    skip( 'jruby too old' ) if too_old
     # clear the fast engines
     engines.clear
 

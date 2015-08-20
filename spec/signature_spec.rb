@@ -11,7 +11,6 @@ describe 'Signature' do
   let( :rounds ) { 10 }
 
   it 'is faster the regular signature' do
-    skip( 'jruby too old' ) if too_old
     # clear the fast engines
     engines.clear
 
