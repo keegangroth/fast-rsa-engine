@@ -27,6 +27,7 @@ Gem::Specification.new do |s|
     s.requirements << "pom org.jruby:jruby-core, 1.7.21, :scope => :provided"
 
     s.add_runtime_dependency 'jar-dependencies', '~> 0.1'
+    s.add_runtime_dependency 'jruby-openssl', '~> 0.9.10'
     s.add_development_dependency 'ruby-maven', '~> 3.3'
   end
 
