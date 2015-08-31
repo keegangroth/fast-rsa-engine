@@ -20,7 +20,7 @@ Gem::Specification.new do |s|
     end
     s.platform = 'java'
     # needed for runtime
-    s.requirements << "jar com.squareup.jnagmp:bouncycastle-rsa, 1.0.0"
+    s.requirements << "jar com.squareup.jnagmp:bouncycastle-rsa, 1.0.1"
     # needed for compilation
     s.requirements << "jar org.bouncycastle:bcpkix-jdk15on, #{BC_VERSION}, :scope => :provided"
     s.requirements << "jar org.bouncycastle:bcprov-jdk15on, #{BC_VERSION}, :scope => :provided"
