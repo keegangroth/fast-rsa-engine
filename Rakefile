@@ -3,10 +3,11 @@
 require 'bundler/gem_tasks'
 
 if RUBY_PLATFORM == 'java'
-  require 'ruby-maven'
+  require 'jars/installer'
 
   desc "Pack fast-rsa-engine.jar with the compiled classes"
   task :jar do
+    Jars::Installer.new( 'fast-rsa-engine.gemspec' ).install_jars
     raise unless RubyMaven.exec('-f', 'fast-rsa-engine.gemspec', 'prepare-package', '-Dmaven.test.skip')
   end
 else
@@ -17,11 +18,7 @@ end
 require "rspec/core/rake_task"
 RSpec::Core::RakeTask.new
 
-require 'rubygems/package_task'
-Gem::PackageTask.new( eval File.read( './fast-rsa-engine.gemspec' ) ) do
-  desc 'Pack fast-rsa-engine.gem'
-  task :package => [:jar]
-end
+task :build => [:jar]
 
 task :default => [ :jar, :spec ]
 
