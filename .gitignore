@@ -1,4 +1,6 @@
 pkg
 pom*
 *jar
+*_jars.rb
 *lock
+.mvn
