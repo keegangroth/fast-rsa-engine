@@ -15,6 +15,7 @@ Gem::Specification.new do |s|
 
   if RUBY_PLATFORM == 'java'
     s.files << 'lib/fast-rsa-engine.jar'
+    s.files << 'lib/fast-rsa-engine_jars.rb'
     unless defined?(BC_VERSION)
       BC_VERSION = '1.50'
     end
