@@ -36,14 +36,13 @@ or
 
 ## developement
 
-get all the gems and jars in place
+Get all the gems and jars in place.
 
-    gem install jar-dependencies --development
     bundle install
 
-for running all specs
+Build jar and run all specs.
 
-	rake
+    bundle exec rake
 
 ## meta-fu
 
