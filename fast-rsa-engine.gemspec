@@ -27,7 +27,7 @@ Gem::Specification.new do |s|
     s.requirements << "jar org.bouncycastle:bcprov-jdk15on, #{BC_VERSION}, :scope => :provided"
     s.requirements << "pom org.jruby:jruby-core, 1.7.21, :scope => :provided"
 
-    s.add_runtime_dependency 'jar-dependencies', '0.3.2'
+    s.add_runtime_dependency 'jar-dependencies', '>= 0.3.10', '< 1.1'
     s.add_runtime_dependency 'jruby-openssl', '~> 0.9.10'
     s.add_development_dependency 'ruby-maven', '~> 3.3'
   end
