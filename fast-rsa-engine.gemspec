@@ -2,7 +2,7 @@
 
 Gem::Specification.new do |s|
   s.name = 'fast-rsa-engine'
-  s.version = '0.3.2'
+  s.version = '0.3.3'
   s.author = 'Christian Meier'
   s.email = [ 'christian.meier@lookout.com', 'rtyler.croy@lookout.com' ]
 
