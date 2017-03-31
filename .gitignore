@@ -4,3 +4,5 @@ pom*
 *_jars.rb
 *lock
 .mvn
+.ruby-gemset
+.ruby-version
