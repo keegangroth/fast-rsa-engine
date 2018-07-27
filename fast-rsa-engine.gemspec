@@ -2,7 +2,7 @@
 
 Gem::Specification.new do |s|
   s.name = 'fast-rsa-engine'
-  s.version = '0.4.1'
+  s.version = '0.4.2'
   s.author = 'Christian Meier'
   s.email = [ 'christian.meier@lookout.com', 'rtyler.croy@lookout.com' ]
 
@@ -28,7 +28,7 @@ Gem::Specification.new do |s|
     s.requirements << "pom org.jruby:jruby-core, 9.1.8.0, :scope => :provided"
 
     s.add_runtime_dependency 'jar-dependencies', '>= 0.3.10', '< 1.1'
-    s.add_runtime_dependency 'jruby-openssl', '~> 0.9.20'
+    s.add_runtime_dependency 'jruby-openssl', '>= 0.9.20', '< 0.11'
     s.add_development_dependency 'ruby-maven', '~> 3.3'
   end
 
