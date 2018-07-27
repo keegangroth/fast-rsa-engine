@@ -1,10 +1,8 @@
 language: ruby
 install: gem install bundler -v '~>1.10'; bundle install
 rvm:
-  - jruby-1.7.19
-  - jruby-1.7.21
-  - jruby-9.0.0.0
-  - jruby-9.1.8.0
+  - jruby-1.7.27
+  - jruby-9.1.17.0
 jdk:
   - openjdk7
   - oraclejdk8
@@ -12,3 +10,5 @@ matrix:
   include:
     - rvm: 1.9.3
       jdk: openjdk7
+    - rvm: jruby-9.2.0.0
+      jdk: openjdk8
